@@ -2,41 +2,71 @@ var canvas = document.querySelector('canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+var x;
+var ElementoIgual = false;
+
 console.log(Math.floor(Math.random() * 10))
 
 var c = canvas.getContext('2d');
 
 function GerarAleatorio(){
-    return Math.floor(Math.random() * 10)
+    posicao = Math.floor(Math.random() * 10)
+    return posicao
 }
 
-function IdentificarRepeticao(posicao){
-    
-    for(var elementos in array){
-        console.log('elementos', elementos)
-        if (posicao == array[elementos]){
-            posicao = GerarAleatorio()
-        }
-    }
-    array.push(posicao)
-}
-var array = []
 for(var i = 1; i<11; i++){
 
-    var posicao = GerarAleatorio()
+    var posicao=0;
+    while(posicao == 0){
+        posicao = GerarAleatorio()
+    }
+        if(i==1){
+        c.fillStyle = 'rgb(255, 0, 0)';
+    }
+    else if(i==2){
+        c.fillStyle = 'rgb(0, 255, 0)';
 
-    repeticao = IdentificarRepeticao(posicao)
+    }
+    else if(i==3){
+        c.fillStyle = 'rgb(0, 0, 255)';
 
-    console.log(array)
-    console.log(posicao)
-    c.fillStyle = 'rgb(255, 0, 0)';
-    c.fillRect(canvas.width/posicao, canvas.width/posicao, canvas.height/posicao, canvas.height/posicao)
+    }
+    else if(i==4){
+        c.fillStyle = 'rgb(0, 255, 255)';
+
+    }
+    else if(i==5){
+        c.fillStyle = 'rgb(255, 255, 0)';
+
+    }
+    else if(i==6){
+        c.fillStyle = 'rgb(255, 255, 255)';
+
+    }
+    else if(i==7){
+        c.fillStyle = 'rgb(0, 0, 0)';
+
+    }
+    else if(i==8){
+        c.fillStyle = 'rgb(0, 100, 0)';
+
+    }
+    else if(i==9){
+        c.fillStyle = 'rgb(100, 100, 0)';
+
+    }
+    else if(i==10){
+        c.fillStyle = 'rgb(0, 100, 100)';
+
+    }
+    
+    c.fillRect(canvas.width /posicao, canvas.width/posicao, canvas.height/posicao, canvas.height/posicao)
     c.strokeRect(canvas.width/posicao, canvas.width/posicao, canvas.height/posicao, canvas.height/posicao) ;
     c.stroke()
 
     c.beginPath();
-    c.moveTo(50 + i*10, 500 + i*10);
-    c.lineTo(300 + i*10, 100 + i*10);
+    c.moveTo(5*posicao + i*posicao, 50*posicao + i*posicao);
+    c.lineTo(30*posicao + i*posicao, 10*posicao + i*posicao);
     c.stroke();
 
 }
