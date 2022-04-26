@@ -20,7 +20,7 @@ function GerarAleatorio(){
 function GerarCorHexadecimal() {
     return '#' + parseInt((Math.random() * 0xFFF))
         .toString(16)
-        .padStart(3, '0');
+        .padStart(3,'0');
 }
 
 
@@ -278,17 +278,58 @@ function drawBatLogo( curveArray ) {
 
 drawBatLogo( [curve_1, curve_2, curve_3, curve_4, curve_5, curve_6, curve_7, curve_8, curve_9, curve_10, curve_11, curve_12] );
 
-function draw() {
+function drawCoracao() {
     
     c.beginPath();
-    c.moveTo(75,40);
-    c.bezierCurveTo(75,37,70,25,50,25);
-    c.bezierCurveTo(20,25,20,62.5,20,62.5);
-    c.bezierCurveTo(20,80,40,102,75,120);
-    c.bezierCurveTo(110,102,130,80,130,62.5);
-    c.bezierCurveTo(130,62.5,130,25,100,25);
-    c.bezierCurveTo(85,25,75,37,75,40);
+    c.moveTo(10 + 75,10 + 40);
+    c.bezierCurveTo(10 + 75,10 + 37,10 + 70,10 + 25,10 + 50,10 + 25);
+    c.bezierCurveTo(10 + 20,10 + 25,10 + 20,10 + 62.5,10 + 20,10 + 62.5);
+    c.bezierCurveTo(10 + 20,10 + 80,10 + 40,10 + 102,10 + 75,10 + 120);
+    c.bezierCurveTo(10 + 110,10 + 102,10 + 130,10 + 80,10 + 130,10 + 62.5);
+    c.bezierCurveTo(10 + 130,10 + 62.5,10 + 130,10 + 25,10 + 100,10 + 25);
+    c.bezierCurveTo(10 + 85,10 + 25,10 + 75,10 + 37,10 + 75,10 + 40);
     c.fill();
 }
-  
-draw()
+
+// function draw() {
+//     c.fillRect(0,0,150,150);
+//     c.translate(75,75);
+//     // Create a circular clipping path
+//     c.beginPath();
+//     c.arc(0,0,60,0,Math.PI*2,true);
+//     c.clip();
+//     // draw background
+//     var lingrad = c.createLinearGradient(0,-75,0,75);
+//     lingrad.addColorStop(0, '#232256');
+//     lingrad.addColorStop(1, '#143778');
+//     c.fillStyle = lingrad;
+//     c.fillRect(-75,-75,150,150);
+//     // draw stars
+//     for (var j=1;j<50;j++){
+//       c.save();
+//       c.fillStyle = '#fff';
+//       c.translate(75-Math.floor(Math.random()*150),
+//                     75-Math.floor(Math.random()*150));
+//       drawStar(c,Math.floor(Math.random()*4)+2);
+//       c.restore();
+//     }
+//   }
+//   function drawStar(c,r){
+//     c.save();
+//     c.beginPath()
+//     c.moveTo(r,0);
+//     for (var i=0;i<9;i++){
+//       c.rotate(Math.PI/5);
+//       if(i%2 == 0) {
+//         c.lineTo((r/0.525731)*0.200811,0);
+//       } else {
+//         c.lineTo(r,0);
+//       }
+//     }
+//     c.closePath();
+//     c.fill();
+//     c.restore();
+//   }
+
+// draw()
+drawCoracao()
