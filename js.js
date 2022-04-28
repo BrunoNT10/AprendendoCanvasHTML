@@ -1,75 +1,105 @@
 var canvas = document.querySelector('canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
-var auxX = Math.random()*500 + Math.random()*50
-var auxY = Math.random()*150 + Math.random()*300
-
-var x;
-var ElementoIgual = false;
-
-console.log(Math.floor(Math.random() * 10))
-
 var c = canvas.getContext('2d');
-
-function GerarAleatorio(){
-    posicao = Math.floor(Math.random() * 10)
-    return posicao
-}
+var x = 50;
+var y = 100;
+var auxX = 0;
+var auxY = 0;
 
 function GerarCorHexadecimal() {
     return '#' + parseInt((Math.random() * 0xFFF))
         .toString(16)
-        .padStart(3,'0');
+        .padStart(3, '0');
 }
 
 
-for(var i = 1; i<11; i++){
+//Desafio 1 
+for (var i = 0; i < 10; i++) {
 
-    var posicao=0;
-    while(posicao == 0){
-        posicao2 = GerarAleatorio()
-        posicao3 = GerarAleatorio()
-        posicao4 = GerarAleatorio()
-        posicao5 = GerarAleatorio()
-        posicao6 = GerarAleatorio()
-        posicao = GerarAleatorio()
+    //auxX = x + auxX; //Reposiciona em X
 
-    }
-    
-    console.log(posicao)
+    //Quadrado
+    c.fillStyle = GerarCorHexadecimal() //Escolhe a cor
+    c.fillRect(auxX, 200, 25, 25); //Posiciona em X, Y e depois o tamanho
 
-    color = GerarCorHexadecimal()
+    //Linha
+    c.beginPath(); //InÃ­cio do comando
+    c.moveTo(auxX, Math.random()*100); //InÃ­cio da linha
+    c.lineTo(Math.random()*500, 100); //Final da linha
+    c.strokeStyle = "purple"; //DefiniÃ§Ã£o da cor
+    c.stroke(); //Executa o desenho
 
-    console.log(posicao2*posicao)
-    c.fillStyle = color
-    // c.fillRect((canvas.width/posicao) - (posicao2*posicao), (canvas.width/posicao) - (posicao2*posicao), (canvas.height/posicao)- 5*posicao, canvas.height/posicao - 5*posicao)
-    c.fillRect(posicao*posicao2*posicao4 + posicao5*10, posicao*posicao2*posicao3 + posicao6*10, 40, 40)
-    
-    c.strokeRect(posicao*posicao2*posicao4 + posicao5*10, posicao*posicao2*posicao3 + posicao6*10, 40, 40) ;
-    c.stroke()
-
+    //CÃ­rculo
     c.beginPath();
-    c.moveTo(5*posicao + i*posicao2, 50*posicao3 + i*posicao4);
-    c.lineTo(30*posicao + i*posicao4, 10*posicao + i*posicao5);
-    // c.strokeStyle(color)
+    c.arc(auxX, 400, 20, 0, Math.PI * 2, false);
+    c.strokeStyle = "red";
     c.stroke();
 
 }
-for(i = 1; i<31; i++){
+
+
+
+//Desafio 2
+for (var i = 0; i < 10; i++) {
+
+    auxX = Math.random()*500 + Math.random()*50; //Reposiciona em X
+    auxY = Math.random()*150 + Math.random()*300; //Reposiciona em Y
+
+    //Quadrado
+    c.fillStyle = GerarCorHexadecimal(); //Escolhe a cor
+    c.fillRect(auxX, auxY, 25, 25); //Posiciona em X, Y e depois o tamanho
+
+    //Linha
+    c.beginPath(); //InÃ­cio do comando
+    c.moveTo(auxX-Math.random()*50, x+auxX); //InÃ­cio da linha
+    c.lineTo(auxX-Math.random()*50, y+auxY); //Final da linha
+    c.strokeStyle = "purple"; //DefiniÃ§Ã£o da cor
+    c.stroke(); //Executa o desenho
+
+    //CÃ­rculo
     c.beginPath();
-    c.arc(auxX, auxY*Math.random()*5, posicao2*5, 0, Math.PI * 2, false);
-    c.strokeStyle = GerarCorHexadecimal;
+    c.arc(auxX, auxY*Math.random(), 20, 0, Math.PI * 2, false);
+    c.strokeStyle = "red";
     c.stroke();
 }
 
-/**
- * HTML5 Canvas Batman Logo Experiment - @the_mudassir guest post for @Design_By_Day
- * Mathematics obtained from http://www.wolframalpha.com/input/?i=batman+logo and manipulated by @the_mudassir.
- *
- */
 
-/* get canvas context */
+
+//Desafio 3
+for (var i = 0; i < 10; i++) {
+
+    auxX = Math.random() * 500 + Math.random() * 50; //Reposiciona em X
+    auxY = Math.random() * 150 + Math.random() * 300; //Reposiciona em Y
+
+    //Quadrado
+    c.fillStyle = GerarCorHexadecimal(); //Escolhe a cor
+    c.fillRect(auxX, auxY, 25, 25); //Posiciona em X, Y e depois o tamanho
+
+    //Linha
+    c.beginPath(); //InÃ­cio do comando
+    c.moveTo(auxX - Math.random() * 50, x + auxX); //InÃ­cio da linha
+    c.lineTo(auxX - Math.random() * 50, y + auxY); //Final da linha
+    c.strokeStyle = GerarCorHexadecimal(); //DefiniÃ§Ã£o da cor
+    c.stroke(); //Executa o desenho
+
+    //CÃ­rculo
+    c.beginPath();
+    c.arc(auxX, auxY * Math.random() * 5, 20, 0, Math.PI * 2, false);
+    c.strokeStyle = GerarCorHexadecimal();
+    c.stroke();
+}
+
+
+
+
+//Desafio 4
+//CÃ­rculo
+c.beginPath();
+c.arc(x, y, Math.random()*20, 0, Math.PI * 2, false);
+c.strokeStyle = "blue";
+c.stroke();
+
 var canvas = document.getElementById( 'arkhamCity' );
 var c = canvas.getContext( '2d' );
 
@@ -281,13 +311,13 @@ drawBatLogo( [curve_1, curve_2, curve_3, curve_4, curve_5, curve_6, curve_7, cur
 function drawCoracao() {
     
     c.beginPath();
-    c.moveTo(10 + 75,10 + 40);
-    c.bezierCurveTo(10 + 75,10 + 37,10 + 70,10 + 25,10 + 50,10 + 25);
-    c.bezierCurveTo(10 + 20,10 + 25,10 + 20,10 + 62.5,10 + 20,10 + 62.5);
-    c.bezierCurveTo(10 + 20,10 + 80,10 + 40,10 + 102,10 + 75,10 + 120);
-    c.bezierCurveTo(10 + 110,10 + 102,10 + 130,10 + 80,10 + 130,10 + 62.5);
-    c.bezierCurveTo(10 + 130,10 + 62.5,10 + 130,10 + 25,10 + 100,10 + 25);
-    c.bezierCurveTo(10 + 85,10 + 25,10 + 75,10 + 37,10 + 75,10 + 40);
+    c.moveTo(300-75, 300-40);
+    c.bezierCurveTo(300-75, 300-37, 300-70, 300-25, 300-50, 300-25);
+    c.bezierCurveTo(300-20, 300-25, 300-20, 300-62.5, 300-20, 300-62.5);
+    c.bezierCurveTo(300-20, 300-80, 300-40, 300-102, 300-75, 300-120);
+    c.bezierCurveTo(300-110, 300-102, 300-130, 300-80, 300-130, 300-62.5);
+    c.bezierCurveTo(300-130, 300-62.5, 300-130, 300-25, 300-100, 300-25);
+    c.bezierCurveTo(300-85, 300-25, 300-75, 300-37, 300-75, 300-40);
     c.fill();
 }
 
@@ -333,3 +363,20 @@ function drawCoracao() {
 
 // draw()
 drawCoracao()
+
+
+c.fillStyle = "blue";
+c.beginPath();
+c.moveTo(108 + 300, 0.0);
+c.lineTo(141 + 300, 70);
+c.lineTo(218 + 300, 78.3);
+c.lineTo(162 + 300, 131);
+c.lineTo(175 + 300, 205);
+c.lineTo(108 + 300, 170);
+c.lineTo(41.2 + 300, 205);
+c.lineTo(55 + 300, 131);
+c.lineTo(1 + 300, 78);
+c.lineTo(75 + 300, 68);
+c.lineTo(108 + 300, 0);
+c.closePath();
+c.fill();
