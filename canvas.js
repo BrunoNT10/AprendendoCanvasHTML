@@ -123,7 +123,7 @@ c.stroke( );
 /* draw author watermark text on canvas */
 c.scale( 1, -1 ); // makes y-axis increasing downwards so text can be written upright
 c.font = '15px Arial';
-var authorName = '@Design_By_Day';
+var authorName = 'Bruno Nunes Teixeira';
 var authorNameMeasured = c.measureText( authorName );
 c.fillStyle = '#10C4C4'; // design by day green
 c.textBaseline = 'bottom'; // allows to be manpulated from bottom-left
